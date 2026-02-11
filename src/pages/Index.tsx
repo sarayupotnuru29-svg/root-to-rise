@@ -33,15 +33,13 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/get-started"
                 className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3.5 text-base font-semibold text-accent-foreground shadow-lg hover:opacity-90 transition-opacity"
               >
                 Subscribe Now
               </a>
               <a
-                href="#services"
+                href="/services"
                 className="inline-flex items-center justify-center rounded-full border-2 border-cream/30 px-8 py-3.5 text-base font-semibold text-cream hover:bg-cream/10 transition-colors"
               >
                 Explore Plans
@@ -93,9 +91,7 @@ const Index = () => {
             </div>
             <br />
             <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/get-started"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-base font-semibold text-accent-foreground shadow-lg hover:opacity-90 transition-opacity"
             >
               Subscribe Now 🚀
@@ -219,7 +215,10 @@ const Index = () => {
       {/* Business Info */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="bg-primary rounded-3xl p-10 lg:p-16 text-primary-foreground text-center">
+          <AnimatedSection className="relative rounded-3xl p-10 lg:p-16 text-primary-foreground text-center overflow-hidden">
+            <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-primary/85" />
+            <div className="relative">
             <Clock size={48} className="mx-auto mb-6 text-accent" />
             <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">Business Hours</h2>
             <p className="text-xl mb-2">Morning 7:00 AM – 12:00 PM</p>
@@ -229,13 +228,12 @@ const Index = () => {
             </div>
             <br />
             <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/get-started"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-base font-semibold text-accent-foreground shadow-lg hover:opacity-90 transition-opacity"
             >
               Start Your Subscription
             </a>
+            </div>
           </AnimatedSection>
         </div>
       </section>
