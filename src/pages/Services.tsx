@@ -65,10 +65,8 @@ const Services = () => (
           {plans.map((plan, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
               <div
-                className={`relative rounded-2xl p-8 h-full flex flex-col ${
-                  plan.popular
-                    ? "bg-primary text-primary-foreground shadow-2xl scale-[1.02]"
-                    : "bg-card text-card-foreground shadow-lg"
+                className={`relative rounded-2xl p-8 h-full flex flex-col bg-card text-card-foreground shadow-lg ${
+                  plan.popular ? "ring-2 ring-accent" : ""
                 }`}
               >
                 {plan.popular && (
@@ -79,13 +77,13 @@ const Services = () => (
                   </div>
                 )}
                 <h3 className="font-display text-xl font-bold mb-1">{plan.name}</h3>
-                <p className={`text-sm mb-5 ${plan.popular ? "opacity-70" : "text-muted-foreground"}`}>
+                <p className="text-sm mb-5 text-muted-foreground">
                   {plan.duration}
                 </p>
                 <div className="mb-6">
                   <span className="text-3xl font-bold">{plan.price}</span>
                   {plan.originalPrice && (
-                    <span className={`text-sm line-through ml-2 ${plan.popular ? "opacity-50" : "text-muted-foreground"}`}>
+                    <span className="text-sm line-through ml-2 text-muted-foreground">
                       {plan.originalPrice}
                     </span>
                   )}
@@ -99,14 +97,8 @@ const Services = () => (
                   ))}
                 </ul>
                 <a
-                  href={WHATSAPP}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90 ${
-                    plan.popular
-                      ? "bg-accent text-accent-foreground"
-                      : "bg-primary text-primary-foreground"
-                  }`}
+                  href="/get-started"
+                  className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90 bg-primary text-primary-foreground"
                 >
                   Start Subscription
                 </a>

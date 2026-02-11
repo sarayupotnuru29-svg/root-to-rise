@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram } from "lucide-react";
+import logo from "@/assets/logo.jpg";
 
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground">
@@ -7,7 +8,10 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand */}
         <div>
-          <h3 className="font-display text-2xl font-bold mb-4">Root to Rise</h3>
+          <div className="flex items-center gap-3 mb-4">
+            <img src={logo} alt="Root to Rise logo" className="w-10 h-10 rounded-full object-cover" />
+            <h3 className="font-display text-2xl font-bold">Root to Rise</h3>
+          </div>
           <p className="text-sm opacity-80 leading-relaxed">
             100% organic millet-based nutrition delivered fresh to your campus and hostel every morning.
           </p>
