@@ -177,7 +177,7 @@ const Index = () => {
             {[
               { icon: <Leaf size={32} />, title: "Zero Policy", desc: "0% Preservatives. 0% Refined Sugar. 0% Artificial Colors." },
               { icon: <Utensils size={32} />, title: "Millet Foundation", desc: "We use Ragi, Jowar, and Bajra for sustained 6-hour energy." },
-              { icon: <Package size={32} />, title: "Freshness First", desc: "Prepared daily using cold-pressed oils and natural jaggery." },
+              { icon: <Package size={32} />, title: "Freshness First", desc: "Prepared daily using cold-pressed juices and natural jaggery." },
               { icon: <Recycle size={32} />, title: "Eco-Friendly Packaging", desc: "Hygienic, sustainable packaging for every delivery." },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>

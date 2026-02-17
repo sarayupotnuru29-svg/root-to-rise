@@ -1,9 +1,8 @@
 // import { Link } from "react-router-dom";
-// import { Phone, Mail, MapPin, Instagram } from "lucide-react";
+// import { Phone, Mail, MapPin, Instagram, Heart } from "lucide-react";
 // import logo from "@/assets/logo.jpg";
 
 // const Footer = () => {
-//   // Optional: Function to force a scroll if you don't want to use the global component
 //   const handleScrollToTop = () => {
 //     window.scrollTo({
 //       top: 0,
@@ -84,8 +83,28 @@
 //           </div>
 //         </div>
 
-//         <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-sm opacity-60">
-//           © {new Date().getFullYear()} Root to Rise. All rights reserved.
+//         {/* Bottom Section */}
+//         <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col items-center gap-4">
+//           <div className="text-center text-sm opacity-60">
+//             © {new Date().getFullYear()} Root to Rise. All rights reserved.
+//           </div>
+          
+//           <div className="flex justify-center items-center gap-1 text-sm">
+//             Made with <Heart className="inline h-4 w-4 text-red-500 mx-1 fill-red-500" /> by
+//             <a
+//               href="https://staffarc.in"
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="flex items-center gap-1 text-orange-500 hover:text-orange-400 font-medium transition-colors"
+//             >
+//               <img
+//                 src="https://www.staffarc.in/images/Staffarc-logo.png"
+//                 alt="StaffArc logo"
+//                 className="h-5 w-5 object-contain"
+//               />
+//               StaffArc
+//             </a>
+//           </div>
 //         </div>
 //       </div>
 //     </footer>
@@ -96,7 +115,7 @@
 
 
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Instagram, Heart } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Heart, Truck, ShieldCheck } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
@@ -112,7 +131,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
-          {/* Brand */}
+          {/* Brand & Founder */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img 
@@ -122,12 +141,16 @@ const Footer = () => {
               />
               <h3 className="font-display text-2xl font-bold">Root to Rise</h3>
             </div>
-            <p className="text-sm opacity-80 leading-relaxed">
+            <p className="text-sm opacity-80 leading-relaxed mb-4">
               100% organic millet-based nutrition delivered fresh to your campus and hostel every morning.
             </p>
+            <div className="text-sm border-l-2 border-accent pl-3">
+              <p className="font-semibold text-accent">Founder</p>
+              <p className="opacity-80">Alekhya Satyanarayan Nelli</p>
+            </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links & Policies */}
           <div>
             <h4 className="font-display text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm opacity-80">
@@ -136,7 +159,7 @@ const Footer = () => {
                 { label: "About", path: "/about" },
                 { label: "Services", path: "/services" },
                 { label: "Contact", path: "/contact" },
-                { label: "Get Started", path: "/get-started" },
+                { label: "Refund Policy", path: "/refund-policy" }, // Added Refund Policy
               ].map((l) => (
                 <li key={l.path}>
                   <Link 
@@ -151,9 +174,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact & Delivery */}
           <div>
-            <h4 className="font-display text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="font-display text-lg font-semibold mb-4">Contact & Delivery</h4>
             <ul className="space-y-3 text-sm opacity-80">
               <li className="flex items-center gap-2"><Phone size={14} /> 9381597312</li>
               <li className="flex items-center gap-2">
@@ -161,14 +184,26 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2"><MapPin size={14} /> Jubilee Hills, Hyderabad</li>
               <li className="flex items-center gap-2"><Instagram size={14} /> @r2r.health</li>
+              <li className="flex items-center gap-2 text-accent font-medium">
+                <Truck size={14} /> Home Delivery Available
+              </li>
             </ul>
           </div>
 
-          {/* Hours */}
+          {/* Business Info & License */}
           <div>
             <h4 className="font-display text-lg font-semibold mb-4">Business Hours</h4>
             <p className="text-sm opacity-80">Morning 7:00 AM – 12:00 PM</p>
             <p className="text-sm opacity-80">Monday to Friday</p>
+            
+            <div className="mt-6 p-3 bg-primary-foreground/10 rounded-lg">
+              <div className="flex items-center gap-2 mb-1">
+                <ShieldCheck size={16} className="text-accent" />
+                <span className="text-xs font-bold tracking-wider">FSSAI REGISTERED</span>
+              </div>
+              <p className="text-[11px] font-mono opacity-90">Registration No: 23625030006361</p>
+            </div>
+
             <a
               href="https://wa.me/919381597312"
               target="_blank"
