@@ -1,5 +1,5 @@
 // import { Link } from "react-router-dom";
-// import { Phone, Mail, MapPin, Instagram, Heart } from "lucide-react";
+// import { Phone, Mail, MapPin, Instagram, Heart, Truck, ShieldCheck } from "lucide-react";
 // import logo from "@/assets/logo.jpg";
 
 // const Footer = () => {
@@ -15,7 +15,7 @@
 //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
-//           {/* Brand */}
+//           {/* Brand & Founder */}
 //           <div>
 //             <div className="flex items-center gap-3 mb-4">
 //               <img 
@@ -25,12 +25,16 @@
 //               />
 //               <h3 className="font-display text-2xl font-bold">Root to Rise</h3>
 //             </div>
-//             <p className="text-sm opacity-80 leading-relaxed">
+//             <p className="text-sm opacity-80 leading-relaxed mb-4">
 //               100% organic millet-based nutrition delivered fresh to your campus and hostel every morning.
 //             </p>
+//             <div className="text-sm border-l-2 border-accent pl-3">
+//               <p className="font-semibold text-accent">Founder</p>
+//               <p className="opacity-80">Alekhya Satyanarayan Nelli</p>
+//             </div>
 //           </div>
 
-//           {/* Quick Links */}
+//           {/* Quick Links & Policies */}
 //           <div>
 //             <h4 className="font-display text-lg font-semibold mb-4">Quick Links</h4>
 //             <ul className="space-y-2 text-sm opacity-80">
@@ -39,7 +43,7 @@
 //                 { label: "About", path: "/about" },
 //                 { label: "Services", path: "/services" },
 //                 { label: "Contact", path: "/contact" },
-//                 { label: "Get Started", path: "/get-started" },
+//                 { label: "Refund Policy", path: "/refund-policy" }, // Added Refund Policy
 //               ].map((l) => (
 //                 <li key={l.path}>
 //                   <Link 
@@ -54,9 +58,9 @@
 //             </ul>
 //           </div>
 
-//           {/* Contact */}
+//           {/* Contact & Delivery */}
 //           <div>
-//             <h4 className="font-display text-lg font-semibold mb-4">Contact</h4>
+//             <h4 className="font-display text-lg font-semibold mb-4">Contact & Delivery</h4>
 //             <ul className="space-y-3 text-sm opacity-80">
 //               <li className="flex items-center gap-2"><Phone size={14} /> 9381597312</li>
 //               <li className="flex items-center gap-2">
@@ -64,14 +68,26 @@
 //               </li>
 //               <li className="flex items-center gap-2"><MapPin size={14} /> Jubilee Hills, Hyderabad</li>
 //               <li className="flex items-center gap-2"><Instagram size={14} /> @r2r.health</li>
+//               <li className="flex items-center gap-2 text-accent font-medium">
+//                 <Truck size={14} /> Home Delivery Available
+//               </li>
 //             </ul>
 //           </div>
 
-//           {/* Hours */}
+//           {/* Business Info & License */}
 //           <div>
 //             <h4 className="font-display text-lg font-semibold mb-4">Business Hours</h4>
 //             <p className="text-sm opacity-80">Morning 7:00 AM – 12:00 PM</p>
 //             <p className="text-sm opacity-80">Monday to Friday</p>
+            
+//             <div className="mt-6 p-3 bg-primary-foreground/10 rounded-lg">
+//               <div className="flex items-center gap-2 mb-1">
+//                 <ShieldCheck size={16} className="text-accent" />
+//                 <span className="text-xs font-bold tracking-wider">FSSAI REGISTERED</span>
+//               </div>
+//               <p className="text-[11px] font-mono opacity-90">Registration No: 23625030006361</p>
+//             </div>
+
 //             <a
 //               href="https://wa.me/919381597312"
 //               target="_blank"
@@ -114,11 +130,15 @@
 // export default Footer;
 
 
+import React, { useState } from "react"; // Added useState for the popup
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Instagram, Heart, Truck, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Heart, Truck, ShieldCheck, X } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
+  // State to handle the Refund Policy Modal
+  const [isRefundModalOpen, setIsRefundModalOpen] = useState(false);
+
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -127,7 +147,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-primary text-primary-foreground relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
@@ -154,23 +174,27 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm opacity-80">
-              {[
-                { label: "Home", path: "/" },
-                { label: "About", path: "/about" },
-                { label: "Services", path: "/services" },
-                { label: "Contact", path: "/contact" },
-                { label: "Refund Policy", path: "/refund-policy" }, // Added Refund Policy
-              ].map((l) => (
-                <li key={l.path}>
-                  <Link 
-                    to={l.path} 
-                    onClick={handleScrollToTop}
-                    className="hover:text-accent transition-colors"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link to="/" onClick={handleScrollToTop} className="hover:text-accent transition-colors">Home</Link>
+              </li>
+              <li>
+                <Link to="/about" onClick={handleScrollToTop} className="hover:text-accent transition-colors">About</Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={handleScrollToTop} className="hover:text-accent transition-colors">Services</Link>
+              </li>
+              <li>
+                <Link to="/contact" onClick={handleScrollToTop} className="hover:text-accent transition-colors">Contact</Link>
+              </li>
+              {/* Refund Policy Trigger */}
+              <li>
+                <button 
+                  onClick={() => setIsRefundModalOpen(true)}
+                  className="hover:text-accent transition-colors text-left"
+                >
+                  Refund Policy
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -178,15 +202,15 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg font-semibold mb-4">Contact & Delivery</h4>
             <ul className="space-y-3 text-sm opacity-80">
+              <li className="flex items-center gap-2 text-accent font-medium">
+                <Truck size={14} /> Home Delivery Available
+              </li>
               <li className="flex items-center gap-2"><Phone size={14} /> 9381597312</li>
               <li className="flex items-center gap-2">
                 <Mail size={14} /> root2rise.healthychoice@gmail.com
               </li>
               <li className="flex items-center gap-2"><MapPin size={14} /> Jubilee Hills, Hyderabad</li>
               <li className="flex items-center gap-2"><Instagram size={14} /> @r2r.health</li>
-              <li className="flex items-center gap-2 text-accent font-medium">
-                <Truck size={14} /> Home Delivery Available
-              </li>
             </ul>
           </div>
 
@@ -239,6 +263,37 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Refund Policy Modal Overlay */}
+      {isRefundModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white text-slate-900 max-w-md w-full rounded-2xl p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button 
+              onClick={() => setIsRefundModalOpen(false)}
+              className="absolute top-4 right-4 p-1 hover:bg-slate-100 rounded-full transition-colors text-slate-500"
+            >
+              <X size={20} />
+            </button>
+            <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-primary">
+              <ShieldCheck className="text-accent" /> Refund Policy
+            </h3>
+            <div className="text-sm space-y-3 text-slate-600 leading-relaxed">
+              <p>At <strong>Root to Rise</strong>, we are committed to providing fresh, healthy nutrition. Due to the perishable nature of our food products:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li><strong>Cancellations:</strong> Orders can be cancelled or rescheduled if informed at least 12 hours before the scheduled delivery time.</li>
+                <li><strong>Quality Concerns:</strong> If there is an issue with the quality of food received, please report it within 2 hours of delivery for a replacement or refund.</li>
+                <li><strong>Non-Refundable:</strong> Refunds are not applicable for missed deliveries due to incorrect contact info or customer unavailability.</li>
+              </ul>
+            </div>
+            <button 
+              onClick={() => setIsRefundModalOpen(false)}
+              className="w-full mt-6 bg-primary text-white py-2.5 rounded-xl font-semibold hover:opacity-90 transition-opacity"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </footer>
   );
 };
